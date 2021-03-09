@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~font-awesome/css/font-awesome.css';
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+
+/* <-- Just for the demo, Yes I like pretty fonts... */
+
+.square-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    position: relative;
+    flex-basis: calc(18.333% - 80px);
+    margin: 5px;
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+.square::before {
+    content: '';
+    display: block;
+    padding-top: 50%;
+}
+
+.square .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 50%;
+}
+
+.butt {
+    border: 1px outset rgba(32, 197, 106, 0.452);
+    background-color: rgb(23, 199, 97);
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.butt:hover {
+    background-color: rgba(0, 255, 170, 0.808);
+    color: white;
+}
+
+
+/* for Wizard application */
+
+
+/* Mandatory */
+
+@import '~ng-wizard/themes/ng_wizard.min.css';
+
+/* Optional */
+
+
+/* If a theme other than default is used, the css file for that theme is required. */
+
+@import '~ng-wizard/themes/ng_wizard_theme_arrows.min.css';
+@import '~ng-wizard/themes/ng_wizard_theme_circles.min.css';
+@import '~ng-wizard/themes/ng_wizard_theme_dots.min.css';
+
+/* regular style toast*/
+
+@import '~ngx-toastr/toastr';
+
+/* bootstrap style toast
+ or import a bootstrap 4 alert styled design (SASS ONLY)
+ should be after your bootstrap imports, it uses bs4 variables, mixins, functions*/
+
+@import '~ngx-toastr/toastr-bs4-alert';
+
+/* if you'd like to use it without importing all of bootstrap it requires */
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~ngx-toastr/toastr-bs4-alert';

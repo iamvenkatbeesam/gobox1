@@ -1,0 +1,306 @@
+<section class="page-section" id="makerequest">
+    <div class="container">
+        <h3>Make A Request</h3>
+        <ng-wizard [config]="config" (stepChanged)="stepChanged($event)">
+
+            <ng-wizard-step [title]="'Product Details'" [canEnter]="isValidTypeBoolean" [canExit]="isValidFunctionReturnsBoolean.bind(this,userrequestforproduct__makerequest)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form [formGroup]="userrequestforproduct__makerequest">
+
+                                <!--<input type="hidden" formControlName="userId">
+                                <input type="hidden" formControlName="pickupAddressId">
+                                <input type="hidden" formControlName="dropAddressId">
+                                <input type="hidden" formControlName="paymentId">
+                                <input type="hidden" formControlName="productDes">-->
+                                <input type="hidden" formControlName="emailId" class="form-control"  value="{{emailId}}">
+                               
+
+                                <div class="form-group">
+                                    <label>Name :</label>
+                                     <label>{{username}}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Id :</label>
+                                    <label>{{emailId}}</label> 
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Mobile No :</label>
+                                     <label>{{phonenumber}}</label> 
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Product Type</label>
+                                    <select name="productType" formControlName="productType" class="form-control" [ngClass]="{ 'is-invalid': check && formData.productType.errors }">
+                                        <option value="">Choose a Product</option>
+                                        <option value="1">Books Box</option>
+                                        <option value="2">Document Box</option>
+                                        <option value="3">Knit-Machine Box</option>
+                                        <option value="4">Doctor Box</option>
+                                        <option value="5">Shoe Box</option>
+                                        <option value="6">Washing-Machine Box</option>
+                                        <option value="7">technical-items Box</option>
+                                        <option value="8">medicine-items Box</option>
+                                        <option value="9">Pasta Box</option>
+                                        <option value="10">Pastries Box</option>
+                                        <option value="11">Cigarrate Box</option>
+                                    </select>
+                                    <div *ngIf="submitted && formData.productType.errors" class="invalid-feedback">
+                                        <div *ngIf="formData.productType.errors.required">Product Type Is Required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Product Description</label>
+                                    <textarea formControlName="productDes" class="form-control" [ngClass]="{ 'is-invalid': submitted && formData.productDes.errors }">
+                                     </textarea>
+                                    <div *ngIf="submitted && formData.productDes.errors" class="invalid-feedback">
+                                        <div *ngIf="formData.productDes.errors.required">Max Characters to Enter:250 is required</div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </ng-wizard-step>
+
+
+            <ng-wizard-step [title]="'Pick up Address'" [canEnter]="isValidTypeBoolean" [canExit]="isaddressformvalid.bind(this,pick_address)">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form [formGroup]="pick_address">
+                                <div class="form-group">
+                                    <label>Pick Address Line1</label>
+                                    <input type="text" formControlName="pick_addressLine1" class="form-control" [ngClass]="{ 'is-invalid': check && addressform.pick_addressLine1.errors }" />
+                                    <div *ngIf="check && addressform.pick_addressLine1.errors" class="invalid-feedback">
+                                        <div *ngIf="addressform.pick_addressLine1.errors.required">Address Line1 is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Address Line2</label>
+                                    <input type="text" formControlName="pick_addressLine2" class="form-control" [ngClass]="{ 'is-invalid': check && addressform.pick_addressLine2.errors }" />
+                                    <div *ngIf="check && addressform.pick_addressLine2.errors" class="invalid-feedback">
+                                        <div *ngIf="addressform.pick_addressLine2.errors.required">Address Line2 is required</div>
+                                    </div>
+                                </div>
+                             
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" formControlName="pick_city" class="form-control" [ngClass]="{ 'is-invalid': check && addressform.pick_city.errors }" />
+                                    <div *ngIf="check && addressform.pick_city.errors" class="invalid-feedback">
+                                        <div *ngIf="addressform.pick_city.errors.required">City is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>County</label>
+                                    <input type="text" formControlName="pick_county" class="form-control" [ngClass]="{ 'is-invalid': check && addressform.pick_county.errors }" />
+                                    <div *ngIf="check && addressform.pick_county.errors" class="invalid-feedback">
+                                        <div *ngIf="addressform.pick_county.errors.required">County is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <select name="pick_country" formControlName="pick_country" class="form-control" [ngClass]="{ 'is-invalid': check && addressform.pick_country.errors }">
+                            <option value="">Choose a country</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="AL">Albania</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AT">Austria</option>
+                                <option value="BY">Belarus</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="HR">Croatia (Hrvatska)</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="FR">France</option>
+                                <option value="GI">Gibraltar</option>
+                                <option value="DE">Germany</option>
+                                <option value="GR">Greece</option>
+                                <option value="VA">Holy See (Vatican City State)</option>
+                                <option value="HU">Hungary</option>
+                                <option value="IT">Italy</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="MK">Macedonia</option>
+                                <option value="MT">Malta</option>
+                                <option value="MD">Moldova</option>
+                                <option value="MC">Monaco</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="RO">Romania</option>
+                                <option value="SM">San Marino</option>
+                                <option value="RS">Serbia</option>
+                                <option value="SK">Slovakia</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="ES">Spain</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="DK">Denmark</option>
+                                <option value="EE">Estonia</option>
+                                <option value="FO">Faroe Islands</option>
+                                <option value="FI">Finland</option>
+                                <option value="GL">Greenland</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IE">Ireland</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="NO">Norway</option>
+                                <option value="SJ">Svalbard and Jan Mayen Islands</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="TR">Turkey</option>
+                            </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Post Code</label>
+                                    <input type="text" formControlName="pick_postcode" class="form-control" [ngClass]="{ 'is-invalid': check && addressform.pick_postcode.errors }" />
+                                    <div *ngIf="check && addressform.pick_postcode.errors" class="invalid-feedback">
+                                        <div *ngIf="addressform.pick_postcode.errors.required">Post Code is required</div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </ng-wizard-step>
+            <ng-wizard-step [title]="'Drop Address'" [canEnter]="isValidTypeBoolean" [canExit]="iscontactdetailsformvalid.bind(this,drop_address)">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form [formGroup]="drop_address">
+                                <div class="form-group">
+                                    <label>Drop Address Line1</label>
+                                    <input type="text" formControlName="drop_addressLine1" class="form-control" [ngClass]="{ 'is-invalid': verify && contactform.drop_addressLine1.errors }" />
+                                    <div *ngIf="check && contactform.drop_addressLine1.errors" class="invalid-feedback">
+                                        <div *ngIf="contactform.drop_addressLine1.errors.required">Address Line1 is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Address Line2</label>
+                                    <input type="text" formControlName="drop_addressLine2" class="form-control" [ngClass]="{ 'is-invalid': verify && contactform.drop_addressLine2.errors }" />
+                                    <div *ngIf="check && contactform.drop_addressLine2.errors" class="invalid-feedback">
+                                        <div *ngIf="contactform.drop_addressLine2.errors.required">Address Line2 is required</div>
+                                    </div>
+                                </div>
+          
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" formControlName="drop_city" class="form-control" [ngClass]="{ 'is-invalid': verify && contactform.drop_city.errors }" />
+                                    <div *ngIf="check && contactform.drop_city.errors" class="invalid-feedback">
+                                        <div *ngIf="contactform.drop_city.errors.required">City is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>County</label>
+                                    <input type="text" formControlName="drop_county" class="form-control" [ngClass]="{ 'is-invalid': verify && contactform.drop_county.errors }" />
+                                    <div *ngIf="check && contactform.drop_county.errors" class="invalid-feedback">
+                                        <div *ngIf="contactform.drop_county.errors.required">County is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select name="drop_country" formControlName="drop_country" class="form-control" [ngClass]="{ 'is-invalid': verify && contactform.drop_country.errors }">
+                            <option value="">Choose a country</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="AL">Albania</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AT">Austria</option>
+                                <option value="BY">Belarus</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="HR">Croatia (Hrvatska)</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="FR">France</option>
+                                <option value="GI">Gibraltar</option>
+                                <option value="DE">Germany</option>
+                                <option value="GR">Greece</option>
+                                <option value="VA">Holy See (Vatican City State)</option>
+                                <option value="HU">Hungary</option>
+                                <option value="IT">Italy</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="MK">Macedonia</option>
+                                <option value="MT">Malta</option>
+                                <option value="MD">Moldova</option>
+                                <option value="MC">Monaco</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="RO">Romania</option>
+                                <option value="SM">San Marino</option>
+                                <option value="RS">Serbia</option>
+                                <option value="SK">Slovakia</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="ES">Spain</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="DK">Denmark</option>
+                                <option value="EE">Estonia</option>
+                                <option value="FO">Faroe Islands</option>
+                                <option value="FI">Finland</option>
+                                <option value="GL">Greenland</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IE">Ireland</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="NO">Norway</option>
+                                <option value="SJ">Svalbard and Jan Mayen Islands</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="TR">Turkey</option>
+                            </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Post Code</label>
+                                    <input type="text" formControlName="drop_postcode" class="form-control" [ngClass]="{ 'is-invalid': verify && contactform.drop_postcode.errors }" />
+                                    <div *ngIf="check && contactform.drop_postcode.errors" class="invalid-feedback">
+                                        <div *ngIf="contactform.drop_postcode.errors.required">Post Code is required</div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </ng-wizard-step>
+
+            <ng-wizard-step [title]="'Payment Type'">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form [formGroup]="payment_selection">
+                                <h1>Payment Type</h1>
+                                <div class="form-check form-check-inline">
+                                    <input id="inlineRadio1" type="radio" class="form-check-input" value="Card" name="paymentType" formControlName="paymentType">
+                                    <label class="form-check-label" for="inlineRadio1">Card</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input id="inlineRadio2" type="radio" class="form-check-input" value="Cash" name="paymentType" formControlName="paymentType">
+                                    <label class="form-check-label" for="inlineRadio2">Cash</label>
+                                </div>
+
+                                <div class="invalid-feedback" *ngIf="isSubmitted && myForm.errors?.required">
+                                    <p>Please select either value</p>
+                                </div>
+
+
+                                
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </ng-wizard-step>
+        </ng-wizard>
+    </div>
+</section>

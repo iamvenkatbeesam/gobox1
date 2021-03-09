@@ -1,0 +1,38 @@
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css' />
+</head>
+<div class="phone_email">
+    <div class="phone_email-header">
+      <h1>Drop Location</h1>
+    </div>
+    <div class="phone_email-form">  
+        <div class="modal-body">
+            <form [formGroup]="phone_emailForm" (ngSubmit)="onSubmit()">
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">email is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phonenumber">Phone Number</label>
+                    <input type="number" formControlName="phonenumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }" />
+                    <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.phonenumber.errors.required">Phone Number is required</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Next
+                    </button>
+                    <a routerLink="/droplocation" class="btn btn-link">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

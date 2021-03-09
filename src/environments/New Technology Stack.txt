@@ -1,0 +1,6 @@
+Distributed ledger technolgy :: ex-company: https://www.dovetaillab.com/ it is aquired by the EMIShealthpartners company of UK
+Presto is Distributed SQL Query Engine for Big Data::: https://prestodb.io/ it is used by the https://www.emishealth.com/ in the UK
+
+------------------
+
+https://www.emishealth.com/products/partner-products/integrated-medical-devices/  ::::::::::::  is EMIShealthpartners company

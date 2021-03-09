@@ -1,0 +1,48 @@
+<section class="page-section" id="employeelist">
+    <div class="container">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Order Summary History</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>Prodcut Description</th>
+                    <th>Pickup Address</th>
+                    <th>Dropup Address</th>
+                    <th>Staus</th>
+                    <th>Product Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let historyDetail of historyDetails">
+                    <td>{{historyDetail.productDescription}}</td>
+                    <td>{{historyDetail.pickUpAddress}}</td>
+                    <td>{{historyDetail.dropUpAddress}}</td>
+                    <td>{{historyDetail.status}}</td>
+                    <td>{{historyDetail.productType}}</td>
+                    <!--<td>
+                        <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+                        <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                        <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                    </td>-->
+                    
+                </tr>
+              
+            </tbody>
+        </table>
+    </div>
+</div> 
+</div>
+</section>
+<!-- ag-grid 
+<section class="page-section" id="employeelist">
+    <div class="container">
+        <h3>Service History</h3>
+        <ag-grid-angular style="width: 950px; height: 300px;" class="ag-theme-alpine" [rowData]="rowData" [columnDefs]="columnDefs">
+        </ag-grid-angular>
+    </div>
+</section>
+-->
